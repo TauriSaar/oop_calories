@@ -1,18 +1,45 @@
-// module pattern basic structure
-const UIController = (function (){
-    let text = 'Hello World'
+// Storage Controller
 
-    const changeText = function (){
-        const element = document.querySelector('h1')
-        element.textContent = text
+// Item Controller
+const ItemCtrl = (function (){
+    // Item Constructor
+    const Item = function (id, name, calories){
+        this.id = id
+        this.name = name
+        this.calories = calories
     }
 
-  return {
-      callChangeText: function (){
-          changeText()
-          console.log(text)
-      }
-  }
+    // Data Structure
+    const data = {
+        items: [
+            {id: 0, name: 'Steak Dinner', calories: 1200},
+            {id: 0, name: 'Cookie', calories: 400},
+            {id: 0, name: 'Eggs', calories: 300},
+
+        ],
+        total: 0
+    }
+
+    return{
+        logData: function (){
+            return data
+        }
+    }
 })();
 
-UIController.callChangeText()
+// UI Controller
+const UICtrl = (function(){
+
+})();
+
+// App Controller
+const App = (function (ItemCtrl, UICtrl){
+    return{
+        init: function (){
+            console.log('Initializing App')
+        }
+    }
+})(ItemCtrl, UICtrl);
+
+// Initialize App
+App.init()
