@@ -97,15 +97,19 @@ const App = (function (ItemCtrl, UICtrl){
     }
     // item add submit function
     const itemAddSubmit = function (event) {
+        console.log(event.type)
         // get form input from UI Controller
         const input = UICtrl.getItemInput()
+        console.log(input)
         // check for name and calorie input
         if (input.name !== '' && input.calories !== ''){
             const newItem = ItemCtrl.addItem(input.name, input.calories)
             console.log(newItem)
         }
         event.preventDefault()
+
     }
+
     return{
         init: function (){
             console.log('Initializing App')
